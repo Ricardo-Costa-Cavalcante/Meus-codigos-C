@@ -1,29 +1,34 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "Compilar e executar com MSYS2",
-      "type": "shell",
-      "command": "C:\\msys64\\usr\\bin\\mintty.exe",
-      "args": [
-        "-e",
-        "C:\\msys64\\ucrt64\\bin\\bash.exe",
-        "-lc",
-        "cd \"${fileDirname}\" && gcc \"${fileBasename}\" -o \"${fileBasenameNoExtension}.exe\" && echo 'Compilado com sucesso!' && echo && ./\"${fileBasenameNoExtension}.exe\"; echo && read -n 1 -s -r -p 'Pressione ENTER para fechar...'"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "presentation": {
-        "reveal": "always",
-        "panel": "new",
-        "showReuseMessage": false,
-        "clear": true
-      },
-      "problemMatcher": [
-        "$gcc"
-      ]
-    }
-  ]
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compilar com MSYS2",
+            "type": "shell",
+            "command": "C:/msys64/ucrt64.exe",
+            "args": [
+                "bash",
+                "-c",
+                "cd '${fileDirname}' && gcc '${fileBasename}' -o '${fileBasenameNoExtension}.exe'"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Compilar e executar com MSYS2",
+            "type": "shell",
+            "command": "C:/msys64/ucrt64.exe",
+            "args": [
+                "bash",
+                "-c",
+                "cd '${fileDirname}' && gcc '${fileBasename}' -o '${fileBasenameNoExtension}.exe' && './${fileBasenameNoExtension}.exe'"
+            ],
+            "group": {
+                "kind": "none"
+            },
+            "problemMatcher": []
+        }
+    ]
 }
